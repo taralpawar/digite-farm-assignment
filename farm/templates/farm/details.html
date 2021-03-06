@@ -1,0 +1,74 @@
+{% extends 'baselayout.html' %}
+
+{% load static from staticfiles %}
+
+
+
+{% block content %}
+
+<div class="container">
+    <h1 class="sign" style="font-family: 'Pacifico', cursive;" align=center>{{farm.name}}</h1>
+
+    <a type="button" class="btn btn-sm btn-dark" href="addcrop/">Add new crop</a>
+
+    <br />
+    <br />
+    <br />
+
+    <!-- <div class="list-group">
+        {% for x in allcrops%}
+        <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
+            <div class="d-flex w-100 justify-content-between">
+                <h5 class="mb-1">{{x.name}}</h5>
+                <small>{{x.season}}</small>
+            </div>
+            <p class="mb-1">
+                <p class="card-text">Quantity: {{x.quantity}} Kg</p>
+
+                <p class="card-text">Plantation date: {{x.plant_date}}</p>
+                <p class="card-text">Harvest date: {{x.harvest_date}}</p>
+                <p class="card-text">Prepare land {{x.land_preparation}} days prior</p>
+                <p class="card-text">Preparation date: {{x.prepare_date}}</p>
+                <p class="card-text">Irrigation Intervals: {{x.irrigation_period}} times a day </p>
+                <p class="card-text">Fertilizer data: {{x.fertilizer}}</p>
+
+                <a href="updatecrop/{{x.id}}/" class="card-link">Update</a>
+                <a href="deletecrop/{{x.id}}/" class="card-link">Delete</a>
+            </p>
+            
+        </a>
+
+        {% endfor %}
+
+    </div> -->
+    <div class="row">
+        {% for x in allcrops%}
+        <div class="col-4">
+            <div class="card" style="width: 20rem; border: 1px solid black;">
+                <div class="card-body">
+                    <h5 class="card-title">{{x.name}}</h5>
+                    <h6 class="card-subtitle mb-2 text-muted">{{x.season}}</h6>
+                    <p class="card-text">Quantity: {{x.quantity}} Kg</p>
+
+                    <p class="card-text">Plantation date: {{x.plant_date}}</p>
+                    <p class="card-text">Harvest date: {{x.harvest_date}}</p>
+                    <p class="card-text">Prepare land {{x.land_preparation}} days prior</p>
+                    <p class="card-text">Preparation date: {{x.prepare_date}}</p>
+                    <p class="card-text">Irrigation Intervals: {{x.irrigation_period}} times a day </p>
+                    <p class="card-text">Fertilizer data: {{x.fertilizer_quantity}} of {{x.fertilizer_name}}</p>
+
+                    <a href="updatecrop/{{x.id}}/" class="card-link">Update</a>
+                    <a href="deletecrop/{{x.id}}/" class="card-link">Delete</a>
+
+
+
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+
+
+</div>
+
+{% endblock %}

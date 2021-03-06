@@ -1,0 +1,103 @@
+{% extends 'baselayout.html' %}
+
+{% load static from staticfiles %}
+
+
+
+{% block content %}
+
+<div class="container">
+    <h1 class="sign" style="font-family: 'Pacifico', cursive;" align=center>Add Crop</h1>
+
+    <br />
+    <br />
+
+    <form method="POST" action="/farm/farmdetails/{{id}}/addcrop/" style="margin-left: 20%; margin-right: 20%;">
+        {% csrf_token %}
+        <label class="form-group-label" for="name">
+            Name
+        </label>
+        <div class="form-group">
+            <input type="text" class="form-control" id="name" name="name" placeholder="Enter name" />
+        </div>
+
+        <label class="form-group-label" for="seasonSelect">
+            Select Season
+        </label>
+        <div id="seasonSelect">
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="season" id="exampleRadios1" value="Kharif" checked>
+                <label class="form-check-label" for="exampleRadios1">
+                    Kharif
+                </label>
+            </div>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="season" id="exampleRadios2" value="Rabi">
+                <label class="form-check-label" for="exampleRadios2">
+                    Rabi
+                </label>
+            </div>
+            <br />
+            <br />
+            <label class="form-group-label" for="quantity">
+                Quantity
+            </label>
+            <div class="form-group">
+                <input type="number" class="form-control" name="quantity" id="quantity"
+                    placeholder="Enter quantity (preferablly in Kg)" />
+            </div>
+
+            <label class="form-group-label" for="plant-date">
+                Expected Plantation date
+            </label>
+            <div class="form-group">
+                <input type="date" class="form-control" name="plant_date" id="plant-date"
+                    placeholder="Enter date (DD/MM/YYYY)" />
+            </div>
+
+            <label class="form-group-label" for="growth-time">
+                Approximate growth time
+            </label>
+            <div class="form-group">
+                <input type="number" class="form-control" name="growth_time" id="growth-time"
+                    placeholder="Enter approx. growth time in days" />
+            </div>
+
+            <label class="form-group-label" for="land-preparation">
+                Land preparation days
+            </label>
+            <div class="form-group">
+                <input type="number" class="form-control" name="land_preparation" id="land-preparation"
+                    placeholder="Enter days required to prepare the land" />
+            </div>
+
+            <label class="form-group-label" for="irrigation">
+                Irrigation Intervals
+            </label>
+            <div class="form-group">
+                <input type="number" class="form-control" name="irrigation_period" id="irrigation"
+                    placeholder="Enter number of irrigations per day" />
+            </div>
+
+            <label class="form-group-label" for="fertilizer">
+                Fertilizer details
+            </label>
+            <div class="input-group">
+                <input type="text" class="form-control" placeholder="Name of fertilizer" name="fertilizer_name"
+                    required="required" />
+                <input type="text" class="form-control" name="fertilizer_quantity" placeholder="Quantity with units"
+                    required="required" />
+            </div>
+            <br />
+        </div>
+        <br />
+        <button type="submit" class="btn btn-dark">Add Crop</button>
+
+    </form>
+
+
+
+
+</div>
+
+{% endblock %}

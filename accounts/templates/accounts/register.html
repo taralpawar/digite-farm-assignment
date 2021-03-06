@@ -1,0 +1,61 @@
+{% extends 'baselayout.html' %}
+
+{% load static from staticfiles %}
+
+
+
+{% block content %}
+<div class="message">
+
+
+</div>
+<div class="container">
+    <div class="main">
+        <h1 class="sign" style="font-family: 'Pacifico', cursive;" align=center>Register</h1>
+        <br />
+        {% if messages %}
+        {% for message in messages %}
+        <div class="msg" role="alert">
+            <centre>
+                <i class="fa fa-remove" style="color: red;"></i>
+                {{message}}
+            </centre>
+        </div>
+        {% endfor%}
+        {% endif %}
+        <br />
+
+        <form method="POST" action="/accounts/register/" style="margin-left: 20%; margin-right: 20%;">
+            {% csrf_token %}
+            <div class="form-group">
+                <input type="text" class="form-control" name="username" placeholder="Enter username"
+                    required="required" />
+            </div>
+
+            <div class="input-group">
+                <input type="text" class="form-control" placeholder="First name" name="fname" required="required" />
+                <input type="text" class="form-control" name="lname" placeholder="Last name" required="required" />
+            </div>
+            <br />
+            <div class="form-group">
+                <input class="form-control" type="email" name="email" placeholder="Email" required="required" />
+            </div>
+
+            <div class="form-group">
+                <input class="form-control" type="password" name="pass1" placeholder="Password" required="required" />
+            </div>
+            <div class="form-group">
+                <input class="form-control" type="password" name="pass2" placeholder="Confirm Password"
+                    required="required" />
+            </div>
+            <br />
+            <button type="submit" class="btn btn-dark">Register</button>
+
+            <small id="emailHelp" class="form-text text-muted">Already have an account? <a
+                    href="/accounts/login/">Login</a></small>
+        </form>
+
+    </div>
+</div>
+
+{% endblock %}

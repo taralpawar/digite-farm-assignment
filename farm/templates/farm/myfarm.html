@@ -1,0 +1,39 @@
+{% extends 'baselayout.html' %}
+
+{% load static from staticfiles %}
+
+
+
+{% block content %}
+
+<div class="container">
+    <h1 class="sign" style="font-family: 'Pacifico', cursive;" align=center>My Farms</h1>
+
+    <a type="button" class="btn btn-sm btn-dark" href="addfarm/">Add new farm</a>
+
+    <br />
+    <br />
+    <br />
+
+    <div class="row">
+
+        {% for x in allfarms%}
+        <div class="col-4">
+            <div class="card" style="width: 18rem;">
+                <div class="card-body">
+                    <h5 class="card-title">{{x.name}}</h5>
+                    <h6 class="card-subtitle mb-2 text-muted">{{x.location}}</h6>
+                    <p class="card-text"></p>
+                    <a href="farmdetails/{{x.id}}/" class="card-link">Details</a>
+
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+
+    </div>
+
+
+</div>
+
+{% endblock %}

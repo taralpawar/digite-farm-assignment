@@ -1,0 +1,37 @@
+{% extends 'baselayout.html' %}
+
+{% load static from staticfiles %}
+
+
+
+{% block content %}
+
+<div class="container">
+    <h1 class="sign" style="font-family: 'Pacifico', cursive;" align=center>Add Farms</h1>
+
+    <br />
+    <br />
+
+    <form method="POST" action="/farm/addfarm/" style="margin-left: 20%; margin-right: 20%;">
+        {% csrf_token %}
+        <div class="form-group">
+            <input type="text" class="form-control" name="name" placeholder="Enter name for the farm" />
+        </div>
+        <div class="form-group">
+            <input type="text" class="form-control" name="location" placeholder="Enter farm location" />
+        </div>
+        <div class="form-group">
+            <input type="text" class="form-control" name="area" placeholder="Enter farm area (approx.)" />
+        </div>
+
+        <br />
+        <button type="submit" class="btn btn-dark">Add Farm</button>
+
+    </form>
+
+
+
+
+</div>
+
+{% endblock %}
